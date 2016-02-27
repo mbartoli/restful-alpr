@@ -24,6 +24,7 @@ RUN apt-get install -y -f openalpr openalpr-daemon openalpr-utils libopenalpr-de
 
 WORKDIR /home
 RUN git clone https://github.com/mbartoli/restful-alpr
-WORKDIR /home/restful-alpr
+WORKDIR /home/restful-alpr/alpr
 
-ENTRYPOINT ["/home/restful-alpr"]
+EXPOSE 3000
+CMD ["python", "restful-alpr.py"]
