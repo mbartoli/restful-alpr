@@ -1,15 +1,22 @@
 # restful-alpr
-RESTful Automatic License Plate Recognition
+RESTful API for Automatic License Plate Recognition
 <br /><br />
+##Setup##
 Start the docker container and run the API on port 3000:
 ```
 docker run -p 3000:3000 mbartoli/restful-alpr 
 ```
 <br />
-Example usage: 
+##Example usage##
+Consider the following image:
+<br /><br />
+![](http://www.plateshack.com/y2k/Pennsylvania5/pa2013invertcar.jpg)
+<br />We can send the URL of the image to the API using the following curl request:
 ```
-curl http://localhost:3000/alpr -d "data=http://www.plateshack.com/y2k/Pennsylvania5/pa2013invertcar.jpg" -X PUT
+curl http://localhost:3000/alpr /
+   -d "data=http://www.plateshack.com/y2k/Pennsylvania5/pa2013invertcar.jpg" -X PUT
 ```
+<br /> 
 ```
 {
     "data_type": "alpr_results", 
@@ -102,12 +109,6 @@ curl http://localhost:3000/alpr -d "data=http://www.plateshack.com/y2k/Pennsylva
     ], 
     "version": 2
 }
-```
-<br /><br /><br />
-Note:
-The current implementation requires starting the flask application manually. You can do this by running the following command
-```
-python /data/restful-alpr/alpr/restful-alpr.py
 ```
 
 Docker Hub: [mbartoli/restful-alpr](https://hub.docker.com/r/mbartoli/restful-alpr/)
