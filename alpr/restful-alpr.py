@@ -2,6 +2,7 @@ from flask import Flask, request
 from flask_restful import Resource, Api
 import subprocess
 import os
+import json
 
 app = Flask(__name__)
 api = Api(app)
@@ -9,11 +10,10 @@ api = Api(app)
 todos = {}
 
 class alprAPI(Resource):
-    def alpr(url):
+    def alpr(self, url):
 	ext = url.split(".")[-1]
-	os.popen('curl -o image.'+ext+' '+url)
-	proc = subprocess.Popen(["alpr", "image."+ext], stdout=subprocess.PIPE, shell=True)
-	(output, err) = proc.communicate()
+	os.popen('curl -o input.'+ext+' '+url)
+	output = os.popen('alpr -j input.'+ext).read().rstrip("\n")
 	return output
     
     def get(self, todo_id):
@@ -21,7 +21,10 @@ class alprAPI(Resource):
 
     def put(self, todo_id):
 	url = request.form['data']
-	return alpr(url)
+	raw = self.alpr(url)
+	formatted_json = json.loads(raw)
+	return formatted_json
+
 
 api.add_resource(alprAPI, '/<string:todo_id>')
 
