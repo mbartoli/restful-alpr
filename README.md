@@ -1,22 +1,23 @@
 # restful-alpr
 RESTful API for Automatic License Plate Recognition
-<br /><br />
+<br />
 ##Setup##
 Start the docker container and run the API on port 3000:
 ```
 docker run -p 3000:3000 mbartoli/restful-alpr 
 ```
-<br />
+   
 ##Example usage##
 Consider the following image:
 <br /><br />
 ![](http://www.plateshack.com/y2k/Pennsylvania5/pa2013invertcar.jpg)
-<br />We can send the URL of the image to the API using the following curl request:
+<br /><br />
+We can send the URL of the image to the API using the following curl request:
 ```
 curl http://localhost:3000/alpr /
    -d "data=http://www.plateshack.com/y2k/Pennsylvania5/pa2013invertcar.jpg" -X PUT
 ```
-<br /> 
+   
 ```
 {
     "data_type": "alpr_results", 
@@ -110,5 +111,5 @@ curl http://localhost:3000/alpr /
     "version": 2
 }
 ```
-
+<br />
 Docker Hub: [mbartoli/restful-alpr](https://hub.docker.com/r/mbartoli/restful-alpr/)
