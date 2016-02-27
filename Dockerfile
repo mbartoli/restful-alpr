@@ -14,7 +14,11 @@ RUN apt-get update && apt-get install -y \
     libopencv-dev \
     libtesseract-dev \
     wget \
-    git
+    git \
+    python-dev \
+    python-pip
+
+RUN pip install flask flask-restful
 
 WORKDIR /home
 RUN wget -O - http://deb.openalpr.com/openalpr.gpg.key | sudo apt-key add -
