@@ -3,7 +3,7 @@ RESTful Automatic License Plate Recognition
 <br /><br />
 Start the docker container and run the API on port 3000:
 ```
-docker run -p 3000:3000 mbartoli/restful-ner 
+docker run -p 3000:3000 mbartoli/restful-alpr 
 ```
 <br />
 Example usage: 
