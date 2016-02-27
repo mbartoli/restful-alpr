@@ -26,4 +26,4 @@ WORKDIR /home
 RUN git clone https://github.com/mbartoli/restful-alpr
 WORKDIR /home/restful-alpr
 
-ENTRYPOINT ["/data/restufl-alpr"]
+ENTRYPOINT ["/home/restful-alpr"]
