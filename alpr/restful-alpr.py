@@ -21,7 +21,7 @@ class alprAPI(Resource):
 
     def put(self, todo_id):
 	url = request.form['data']
-	return alprAPI(url)
+	return alpr(url)
 
 api.add_resource(alprAPI, '/<string:todo_id>')
 
