@@ -1,9 +1,7 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
-import ner
 import subprocess
 import os
-import re
 
 app = Flask(__name__)
 api = Api(app)
